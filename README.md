@@ -69,22 +69,19 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
     * Here is a simple test program sum1ton.c
     >use vim to write the code
     `vim sum1ton.c`
+      ```
+      #include <stdio.h>
     
-  ```
-  #include <stdio.h>
-
-  int main(){
-        int i,n = 100;
-        int sum = n*(2+(n-1)*1)/2;
-        printf("SUm of numbers from 1 to %d is %d\n",n,sum);
-        return 0;
-  }
-  ```
-    * the output:
-    ```
-    SUm of numbers from 1 to 100 is 5050
-    ```
-
+      int main(){
+            int i,n = 100;
+            int sum = n*(n+1)/2;
+            printf("SUm of numbers from 1 to %d is %d\n",n,sum);
+            return 0;
+      }
+      ```
+    * output `SUm of numbers from 1 to 100 is 5050`
+    
+  
   + L2 (RISC-V GCC Compiler and Dissemble)
     + command `riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c` to compile in -O1.
     + command `ls -ltr sum1ton.c` to verify 
