@@ -80,7 +80,7 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
         return 0;
   }
   ```
-    the output:
+    * the output:
     ```
     SUm of numbers from 1 to 100 is 5050
     ```
