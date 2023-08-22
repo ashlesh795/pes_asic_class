@@ -120,7 +120,49 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 
     + `spike pk sum1ton.o`
     + `spike -d pk sum1ton.o`
-    
+   
++ Lab for unsigned and signed integers:
+  + unsigned
+ ```
+#include<stdio.h>
+#include<math.h>
+
+int main(){
+        unsigned long long int max = (unsigned long long int)(pow(2,64) -1);
+        printf("highest number represented by unsigned long long int is %llu\n", max);
+        return 0;
+}
+ ```
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/0d0c3ce7-b88f-4daa-92ab-960db5bf1913)
+  >here the power of 2 is 64.
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/37a4dc4f-eff1-41cd-9530-52a82f02a7f3)
+  >here the power of 2 is 127 which is more than the capacity of 64 bit representaion, but still we can see that the maxium has not changed from before
+>
+  + signed
+```
+#include<stdio.h>
+#include<math.h>
+int main(){
+        long long int max = (long long int )(pow(2,10) -1);
+        printf("the highest integer that can be represented is %lld\n",max);
+        return 0;
+}
+```
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/4a1718f1-be93-4c69-916c-b3ea82535856)
+  > notice in code the power of 2 is 10 and type of max is long long int
+
+   ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/156d7044-372c-45b0-8133-4cb3f9912e04)
+   > the max and min that can be represented in signed int
+
+
+
+  
+
+
+
+
+
   
 
 
