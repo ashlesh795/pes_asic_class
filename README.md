@@ -155,6 +155,154 @@ int main(){
    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/156d7044-372c-45b0-8133-4cb3f9912e04)
    > the max and min that can be represented in signed int
 
+## Day 2
+
+# Application Binary Interface
+
+- An Application Binary Interface (ABI) is a set of rules and conventions that dictate how different components of a software system communicate with each other at the binary level. ABI serves as a bridge between high-level programming languages and the machine-level instructions that computers understand.
+
+- ABIs are essential for ensuring compatibility between different parts of a system, especially when those parts are developed by different parties or using different programming languages.
+
+# Memory Allocation for Double Words
+
+Length of a register in the RISCV architecture is 64 bits. The two different ways to load data into these registers:
+  - Loading data directly into the registers
+  - Loading data into memory and then into the registers.
+
+64-bit number  can be loaded into memory in little-endian or big-endian format.
+
+-Big-Endian:
+In a big-endian system the most significant byte value is stored at the lowest memory address, while the least significant byte is stored at the highest memory address. 
+
+-Little-Endian:
+In a little-endian system the least significant byte value is stored at the lowest memory address, while the most significant byte is stored at the highest memory address. 
+
+# Load, Add and Store Instructions
+
+**Load Instruction**
+Load instructions are used to transfer data from memory into registers.Load instructions are essential for bringing data into the processor's registers before it can be manipulated by other instructions.
+
+```
+ld  x6, 16(x7)
+```
+
+- ld: Load Doubleword. It indicates that the instruction is used to load a 64-bit value from memory.
+- x6: This is the destination register.
+- 16: This is the offset value. It specifies the displacement from the address in register x7.
+- (x7): This indicates that the address from which to load the data is calculated using the value stored in register x7.
+
+
+Execution 
+
+![51665fdf-d62d-4c06-bb91-06365aa21656](https://github.com/ashlesh795/pes_asic_class/assets/127172774/a864e0d0-8f92-461f-a9f0-f8988d68aa91)
+
+- funct3 and opcode stores the ld command
+- Destination register is stored as 5 bits in rd.
+- ource register is stored as 5 bits in rs1.
+- Offset is stored as 12 bits in immediate
+
+  
+  
+
+ 
+**Add Instruction**
+
+ Assembly instruction add is used to perform addition between two registers and store the result in a destination register.
+
+ ```
+add  x1, x2,x3
+```
+
+- x1:destination register
+- x2,x3:source registers containing the operands that are to be added.
+
+Execution
+![image](https://github.com/Anirudh-Ravi123/pes_asic_class/assets/142154804/505eedee-2f0c-4cf8-9cc6-db5d820eb327)
+
+- funct3 funct7 and opcode stores the add command.
+- destination register x1 is stored in rd.
+- source registers x2 and x3 are stored in rs1 and rs2.
+
+
+**Store Instruction**
+Store instructions are used to transfer data from registers back to memory. Store instructions are necessary for updating memory with the results of computation carried out by the processor.
+
+ ```
+sd  x2, 8(x3)
+```
+- sd : store doubleword command
+- x2 is the data register
+- x3 is the source register
+- 8 is offset
+
+  ![image](https://github.com/Anirudh-Ravi123/pes_asic_class/assets/142154804/daa44b3e-d70f-4c1c-aa57-bdf84a27de51)
+
+- funct3 and opcode stores the sd command
+-  offest 8 is stored as immediate
+-  data register x2 is stored in rs2
+-  source register x3 in rs1
+
+  # 32-Registers and their ABI Names
+  In the RISC-V architecture, there are 32 integer registers, and they are commonly referred to by their numeric indices x0 through x31. 
+
+ **ABI Names**
+ These are the names a user uses to access the registers of the RISC-V CPU core.
+
+ 
+ ![image](https://github.com/Anirudh-Ravi123/pes_asic_class/assets/142154804/e0125ca7-3f3f-40ae-b9b4-90b9c5d5d13d)
+
+
+ 
+
+ # Sum of Numbers from 1 to n using ASM
+
+ We write two programs here, one in C and one in assembly. Main part of the program is processed in ASM and result is desplayed through the C program.
+ code:
++ 1to9_custom.c
+ ```
+#include<stdio.h>
+extern int load(int x, int y);
+int main(){
+        int result=0 ;
+        int count =9;
+        result = load (0x0,count +1);
+        printf("Sum of number from 1 to %d is %d \n ",count ,result);
+}
+```
++ load.S
+```
+.section .text
+.global load
+.type load, @function
+
+load:
+        add     a4, a0, zero    //init sum reg a4 with 0x0
+        add     a2, a0, a1      //store count of 10 in reg a2. reg a1 loaded with 0xa from main
+        add     a3, a0, zero    //init intermediate sum reg a3 by 0
+loop:   add     a4, a3, a4      //incremental addition
+        addi    a3, a3, 1       //increment intermediate register by 1
+        blt     a3, a2, loop    //if a3<a2, branch to label named <loop>
+        add     a0, a4, zero    //store final result to register a0 to be read by main
+        ret
+```
+
+ 
+
+![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/0b680cd6-4a4e-421c-8ce6-d2711c98284b)
+
+Execution 
+
+
+![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/0e892dd0-6536-4806-aa04-f929e3a18dea)
+
+
+
+
+![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/c3bb2d7a-4ebf-4f2e-beb5-354781830932)
+
+
+  
+
 
 
   
