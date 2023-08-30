@@ -19,6 +19,7 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 + all done
 
 
+
 # Introduction to Basic Keywords
 ## Introduction
 - **ISA (Instruction Set Archhitecture)**
@@ -61,9 +62,9 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 **Memory Allocation and Stack Pointer** 
 - Memory allocation refers to the process of assigning and managing memory segments for various data structures, variables, and objects used by a program. It involves allocating memory space from the system's memory pool and releasing it when it is no longer needed to prevent memory leaks.
 - The stack pointer is a register used by a program to keep track of the current position of the program's execution on the call stack. 
-
-# Labwork for RISCV Toolchain
-+ ## Day-1
+<details>
+  <summary> DAY-1 </summary>
+<br>
   
   + L1 (C-program)
     * Here is a simple test program sum1ton.c
@@ -155,7 +156,9 @@ int main(){
    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/156d7044-372c-45b0-8133-4cb3f9912e04)
    > the max and min that can be represented in signed int
 
-## Day 2
+<details>
+  <summary> DAY-2 </summary>
+<br>
 
 # Application Binary Interface
 
@@ -300,7 +303,9 @@ Execution
 
 ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/c3bb2d7a-4ebf-4f2e-beb5-354781830932)
 
-## DAY 3
+<details>
+  <summary> DAY-3 </summary>
+<br>
 # Introduction to verilog RTL Design and synthesis using SKY130
 ## Open-Source Simulator iVerilog 
 **Simulator** is a tool for modeling the design. In order to evaluate the outputs, it searches for changes in the input signals. The simulator doesn't evaluate the outputs if the inputs remain the same. 
@@ -366,8 +371,12 @@ Yosys is an open-source software framework for digital logic synthesis and forma
 
     ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/c91cfb07-7f42-47e1-b57d-a4a911d5cc03)
 
+
+
+
+
+
+
+
+
     
-
-
-
-
