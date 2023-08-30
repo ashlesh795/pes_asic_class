@@ -155,11 +155,13 @@ int main(){
 
    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/156d7044-372c-45b0-8133-4cb3f9912e04)
    > the max and min that can be represented in signed int
+</details>
 
 <details>
-  <summary> DAY-2 </summary>
-<br>
+  <summary> Day 2 </summary>
+  <br>
 
+  
 # Application Binary Interface
 
 - An Application Binary Interface (ABI) is a set of rules and conventions that dictate how different components of a software system communicate with each other at the binary level. ABI serves as a bridge between high-level programming languages and the machine-level instructions that computers understand.
@@ -302,10 +304,13 @@ Execution
 
 
 ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/c3bb2d7a-4ebf-4f2e-beb5-354781830932)
+</details>
+
 
 <details>
   <summary> DAY-3 </summary>
 <br>
+  
 # Introduction to verilog RTL Design and synthesis using SKY130
 ## Open-Source Simulator iVerilog 
 **Simulator** is a tool for modeling the design. In order to evaluate the outputs, it searches for changes in the input signals. The simulator doesn't evaluate the outputs if the inputs remain the same. 
