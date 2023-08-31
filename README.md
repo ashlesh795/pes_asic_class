@@ -389,6 +389,33 @@ Yosys is an open-source software framework for digital logic synthesis and forma
     
   ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/0c0a72cc-0371-489b-a5e2-9f47227d5a8d)
 
+# Heirarchical Synthesis vs Flat Synthesis 
+
+  + multiple modules in _verilog_files_ `vim multiple_modules.v`
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/89164ba3-e971-4709-ba31-482408df9d2e)
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_modules.v
+synth -top multiple_modules
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show multiple_modules
+```
+
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/415102bb-4b71-436a-b40a-2b140dd2fefd)
+
+
+  + `write_verilog -noattr multiple_modules_heir.v`
+  + `!vim multiple_modules_heir.v`
+  
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/c15ffeba-fac4-4d03-923f-866ea246e3f5)
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/70e9f686-4728-4cac-a74a-079cb3506118)
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/bc435bad-ed42-4a2d-ad7c-25538b418396)
+
+
 </details>
 
 
