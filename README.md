@@ -376,8 +376,17 @@ Yosys is an open-source software framework for digital logic synthesis and forma
 
     ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/c91cfb07-7f42-47e1-b57d-a4a911d5cc03)
 
+</details>
 
+<details>
+  <summary> DAY-4 </summary>
+  <br>
+# Introduction to timing.libs  
+  + to view the lib 
+  `vim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/0c0a72cc-0371-489b-a5e2-9f47227d5a8d)
 
+</details>
 
 
 
