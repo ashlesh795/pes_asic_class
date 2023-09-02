@@ -452,15 +452,80 @@ flatten
 
    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/d324c23f-de4a-4389-afde-119f5d0b63d8)
 
-+  Various Flop Coding Styles and optimization
+##  Various Flop Coding Styles and optimization
+
+  + asynchronous reset
+    code
+```
+module dff_asyncres ( input clk ,  input async_reset , input d , output reg q );
+always @ (posedge clk , posedge async_reset)
+begin
+        if(async_reset)
+                q <= 1'b0;
+        else
+                q <= d;
+end
+endmodule
+```
+
+    
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/b9f4d2dc-ada2-412e-9e20-e49fcac58f8d)
 
 
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/a1e2d921-fc39-418e-9fd4-d8a4160553d8)
 
 
+  + asynchronous set
+    code
+```
+module dff_async_set ( input clk ,  input async_set , input d , output reg q );
+always @ (posedge clk , posedge async_set)
+begin
+        if(async_set)
+                q <= 1'b1;
+        else
+                q <= d;
+end
+endmodule
+```
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/db40ae58-6a20-407b-950c-c46170a6ba08)
 
 
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/95a70252-cf43-46c0-8c82-8f3c47f88fb7)
+
+  + Asynchronous reset
+
+```
+   yosys
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   read_verilog dff_asyncres.v
+   synth -top dff_asyncres
+   dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+    show
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/92976890-5fa9-48ac-97ec-76c8b668049e)
+
+  + Synchronous set
+    
+```
+   yosys
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   read_verilog dff_async_set.v
+   synth -top dff_async_set
+   dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+    show
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/4ca65794-96a5-47ba-a60a-859cdb40e65b)
+
+  + synchronous set
 
 
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/a037e22e-f409-4c05-b623-e063407f2c88)
 
 
 </details>
