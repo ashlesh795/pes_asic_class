@@ -509,7 +509,7 @@ endmodule
 
   ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/92976890-5fa9-48ac-97ec-76c8b668049e)
 
-  + Synchronous set
+  + Asynchronous set
     
 ```
    yosys
@@ -526,6 +526,8 @@ endmodule
 
 
   ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/a037e22e-f409-4c05-b623-e063407f2c88)
+
+  ## Interesting Optimizations
 
 
 </details>
