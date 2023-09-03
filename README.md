@@ -675,9 +675,79 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
     ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/72a35d30-ad35-40b1-800e-7c44f25b4fa8)
 
+  + dff_const2
+
+          vim dff_const2.v
+    
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/8e17934a-bb88-482a-b716-9bc0f4c537af)
 
 
 
+          iverilog dff_const2.v tb_dff_const2.v
+          ./a.out
+          gtkwave tb_dff_const2.vcd
+
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/fc0d063c-b573-4c9d-8c6d-03e8f06b1bc7)
+
+
+         
+          read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+          read_verilog dff_const2.v
+          synth -top dff_const2
+          dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+          abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/2945631c-697f-4188-a16c-08bd81ac3696)
+
+          show
+          
+
+![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/0da4610c-334b-4cff-8e44-3811afb55d34)
+
++ dff_const3
+
+  `vim dff_const3`
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/81084a5e-c777-4562-a72c-46f856add56f)
+
+  ```
+    iverilog dff_const3.v tb_dff_const3.v
+    /a.out
+    gtkwave tb_dff_const3.vcd
+  ```
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/04504d47-1e25-4ad2-99ba-6786881a5df7)
+
+    + synthesis
+ 
+      
+   ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/6dac8ec5-56fe-4422-b751-00769128d7e0)
+
+
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/54ed6adb-a029-472e-bb25-fd592910541b)
+  
+
++ dff_const4
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/e72fd5ca-c77c-4771-b52b-4e5637e9ea68)
+
+      iverilog dff_const4.v tb_dff_const4.v
+      /a.out
+      gtkwave tb_dff_const4.vcd
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/b35c5736-6589-43e0-adb8-4ac3855c87d7)
+
+
+    + synthesis
+ 
+  
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/399a2b03-cad6-47ef-b617-fd5cb8f98d58)
+
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/d518b43e-f9ab-4afd-a45e-fd9ddac53858)
+
++ dff_const5
+
+        gvim dff_const5.v
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/dfad99a7-1655-4e3c-aeda-e52a67e5e2d6)
 
 
 
