@@ -522,13 +522,24 @@ endmodule
     show
   ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/4ca65794-96a5-47ba-a60a-859cdb40e65b)
 
-  + synchronous set
-
+ + synchronous reset
 
   ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/a037e22e-f409-4c05-b623-e063407f2c88)
 
   ## Interesting Optimizations
 
+  ```
+   yosys
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   read_verilog mult_2.v
+   synth -top mul2
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/070cbc12-9edf-41d8-bfb7-d20c1e92834a)
+
+
+      show
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/84c598b8-2858-4e20-8ee8-aa6ff0265d1d)
 
 </details>
 
