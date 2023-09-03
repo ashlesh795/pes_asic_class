@@ -543,6 +543,145 @@ endmodule
 
 </details>
 
+<details>
+  <summary> Day-5 </summary>
+  <br>
+
+# Combinational and sequential optmizations
+## Combinations Optmizations 
+  + opt_check
+
+```
+module opt_check (input a , input b , output y);
+        assign y = a?b:0;
+endmodule
+```
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check.v
+synth -top opt_check
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+    show
+
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/022467bb-8551-4e78-b360-12413592c7c3)
+  + opt_check2
+
+```
+module opt_check2 (input a , input b , output y);
+        assign y = a?1:b;
+endmodule
+```
+
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check2.v
+synth -top opt_check2
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+    show
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/f6279f43-922a-4044-81ed-04ab28c76bcf)      
+
+  + opt_check3
+
+```
+module opt_check3 (input a , input b, input c , output y);
+        assign y = a?(c?b:0):0;
+endmodule
+```
+
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/d07559e9-9217-415e-aef9-eed624aced29)
+
+  + opt_check4
+
+```
+module opt_check4 (input a , input b , input c , output y);
+assign y = a?(b?(a & c ):c):(!c);
+endmodule
+```
+
+![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/8dcb1c14-6db7-4c9f-ad6c-ef368d063eae)      ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/0e5ad8f4-f703-4581-bc2b-288f2922efc1)
+
+
+  + multiple_module_opt
+
+```
+module sub_module1(input a , input b , output y);
+assign y = a & b;
+endmodule
+
+
+module sub_module2(input a , input b , output y);
+assign y = a^b;
+endmodule
+
+
+module multiple_module_opt(input a , input b , input c , input d , output y);
+wire n1,n2,n3;
+
+sub_module1 U1 (.a(a) , .b(1'b1) , .y(n1));
+sub_module2 U2 (.a(n1), .b(1'b0) , .y(n2));
+sub_module2 U3 (.a(b), .b(d) , .y(n3));
+
+assign y = c | (b & n1);
+
+
+endmodule
+```
+
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check2.v
+synth -top opt_check2
+flatten
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+  ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/d2538584-48a9-4920-a012-81ea659cded6)
+
+
+
+## Sequential Logic Optimisations
+  + dff_const1
+
+        vim dff_const1
+
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/5e96eaa0-810c-4986-bbc2-c4236ee4fa97)
+
+        iverilog dff_const1.v tb_dff_const1.v
+        ./a.out
+        gtkwave tb_dff_const1.vcd
+
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/6e9c88ef-8f2f-4f25-a0b2-416f5d1acd7a)
+
+
+        yosys
+        read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+        read_verilog dff_const1.v
+        synth -top dff_const1
+        dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+        abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+        show
+
+
+    ![image](https://github.com/ashlesh795/pes_asic_class/assets/127172774/72a35d30-ad35-40b1-800e-7c44f25b4fa8)
+
+
+
+
+
+
+
+</details>
 
 
 
